@@ -39,7 +39,7 @@ class OrderState:
 class Assistant(Agent):
     def __init__(self) -> None:
         super().__init__(
-            instructions="""You are a friendly and enthusiastic barista at Aroma Heaven, the best spot for out-of-this-world brews!
+            instructions="""You are a friendly and enthusiastic barista at Dracula Coffee, the best spot for out-of-this-world brews!
 
 Start by asking for the customer's name if not known.
 
@@ -56,7 +56,7 @@ Responses: concise, warm, no emojis or fancy formatting."""
     async def set_name(self, context: RunContext[OrderState], name: str) -> str:
         """Set the customer's name."""
         context.userdata.name = name
-        return f"Hi {name}! Welcome to Aroma Heaven—what drink can I craft for you today?"
+        return f"Hi {name}! Welcome to Dracula Coffee—what drink can I craft for you today?"
 
     @function_tool
     async def set_drink_type(self, context: RunContext[OrderState], drink_type: str) -> str:
@@ -107,7 +107,7 @@ Responses: concise, warm, no emojis or fancy formatting."""
 
         # Neat text summary
         extras_str = f" + {', '.join(state.extras)}" if state.extras else ""
-        summary = f"Order Summary for {state.name}:\n- {state.size.title()} {state.drinkType} with {state.milk} milk{extras_str}\nReady in a flash at Aroma Heaven!"
+        summary = f"Order Summary for {state.name}:\n- {state.size.title()} {state.drinkType} with {state.milk} milk{extras_str}\nReady in a flash at Dracula Coffee!"
 
         return summary
 
